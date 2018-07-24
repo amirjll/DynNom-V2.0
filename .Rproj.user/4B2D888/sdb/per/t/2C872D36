@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: DynNom\nType: Package\nTitle: Dynamic Nomograms for Linear, Generalized Linear and Proportional Hazard Models\nVersion: 2.0\nDate: 2015-10-27\nAuthor: Amirhossein Jalali, Alberto Alvarez-Iglesias, Davood Roshan Sangachin, John Newell\nMaintainer: Amirhossein Jalali <a.jalali2@nuigalway.ie>\nDescription: Demonstrate the results of an lm(), glm() or coxph() model object as a dynamic nomogram that can be displayed in an 'RStudio' panel or web browser.\nLicense: GPL-2\nLazyData: TRUE\nImports:\n    ggplot2,\n    stargazer,\n    shiny,\n    compare,\n    survival (>= 2.38-3)\n",
+    "created" : 1446214716200.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1185510585",
+    "id" : "2C872D36",
+    "lastKnownWriteTime" : 1446214771,
+    "last_content_update" : 0,
+    "path" : "C:/Users/Amir/Dropbox/Projects/DynNom project/DynNom V2.0/DynNom/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}

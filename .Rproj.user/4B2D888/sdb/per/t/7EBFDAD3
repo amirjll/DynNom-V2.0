@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "importFrom(\"stats\", \"confint\", \"na.omit\", \"predict\", \"qnorm\", \"qt\",\n             \"quantile\", \"sd\", \"time\")\nimportFrom(\"utils\", \"tail\")\nimport(ggplot2)\nimport(shiny)\nimport(stargazer)\nimport(compare)\nimport(survival)\nexport(DynNom)\nexport(DynNom.lm)\nexport(DynNom.glm)\nexport(DynNom.coxph)\n",
+    "created" : 1446214295783.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1938399271",
+    "id" : "7EBFDAD3",
+    "lastKnownWriteTime" : 1446214303,
+    "last_content_update" : 0,
+    "path" : "C:/Users/Amir/Dropbox/Projects/DynNom project/DynNom V2.0/DynNom/NAMESPACE",
+    "project_path" : "NAMESPACE",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_namespace"
+}

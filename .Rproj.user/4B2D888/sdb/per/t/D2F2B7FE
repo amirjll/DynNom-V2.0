@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\\name{DynNom}\n\\alias{DynNom}\n\\title{\nDynamic Nomograms for Linear, Generalized Linear and proportional hazard Models\n}\n\\description{\nDynNom() is a generic function for displaying the results of an lm(), glm() or coxph() model object as a dynamic nomogram in an 'RStudio' panel or web browser.\n}\n\\usage{\nDynNom(model, data,\n       clevel = 0.95, covariate = c(\"slider\", \"numeric\"),\n       ptype = c(\"st\", \"1-st\"))\n}\n\\arguments{\n  \\item{model}{\n  an lm, glm or coxph model object\n}\n  \\item{data}{\n  dataframe containing the accompanying data\n}\n  \\item{clevel}{\n  confidence level required\n}\n  \\item{covariate}{\n  The option to choose the type of covariate(s) input control widget for numeric values. If \"slider\" (the default) is chosen a shiny application with slider control widget is used while if \"numeric\" is chosen a numeric values input control will be displayed.\n}\n  \\item{ptype}{\n  This plot type option relates to coxph objects only. If \"st\" (the default) is chosen, a plot of the estimated survivor function, S(t),  is displayed.  If \"1-st\" is chosen a plot of 1- S(t) is displayed.\n}\n}\n\\value{\nA dynamic nomogram in a shiny application\n}\n\\references{\nBanks, J. 2006. Nomograms. Encyclopedia of Statistical Sciences. 8. \\cr\nEasy web applications in R. \\url{http://shiny.rstudio.com}\n}\n\\author{\nAmirhossein Jalali, Alberto Alvarez-Iglesias, Davood Roshan Sangachin, John Newell\n\nMaintainer: Amirhossein Jalali <a.jalali2@nuigalway.ie>\n}\n\\section{Please cite as:}{\nJalali, A., Alvarez-Iglesias, A., Roshan, D. Newell, J. (2015). Dynamic Nomograms for Linear, Generalized Linear and Proportional Hazard Models: The DynNom package. Version 2.0.\n}\n\\seealso{\n\\code{\\link{DynNom.lm}}, \\code{\\link{DynNom.glm}}, \\code{\\link{DynNom.coxph}}\n}\n\\examples{\n\\dontrun{\n# a simple linear regression model\nmodel1 <- lm(uptake ~ Plant + conc + Plant * conc, data = CO2)\nDynNom(model1, CO2)\n\n# a logistic regression model\ndata1 =as.data.frame(Titanic)\nmodel2 <- glm(Survived ~ Age + Class + Sex, data = data1, weights = Freq,\n              family = binomial(\"probit\"))\nDynNom(model2, as.data.frame(Titanic), clevel = 0.9)\n\n# a proportional hazard model\ndata.kidney <- kidney\n# always make sure that the categorical variables are in a factor class\ndata.kidney$sex <- as.factor(data.kidney$sex)\nlevels(data.kidney$sex) <- c(\"male\", \"female\")\n\nmodel1 <- coxph(Surv(time, status)~ age + sex + disease, data.kidney)\nDynNom(model1, data.kidney)\nDynNom(model1, data.kidney, ptype = \"1-st\")\n}\n\nif (interactive()) {\n# a poisson regression model\nmodel3 <- glm(event ~ mag + station + dist + accel, data = attenu, family = poisson)\nDynNom(model3, attenu, covariate = \"numeric\")\n}\n}\n\\keyword{ dynamic nomograms }\n\\keyword{ prediction }\n\\keyword{ shiny }\n",
+    "created" : 1446214450067.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2632863908",
+    "id" : "D2F2B7FE",
+    "lastKnownWriteTime" : 1446138599,
+    "last_content_update" : 0,
+    "path" : "C:/Users/Amir/Dropbox/Projects/DynNom project/DynNom V2.0/DynNom/man/DynNom.Rd",
+    "project_path" : "man/DynNom.Rd",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_doc"
+}

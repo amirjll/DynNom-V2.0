@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "DynNom <- function(model, data,\n                   clevel = 0.95, covariate = c(\"slider\", \"numeric\"),\n                   ptype = c(\"st\", \"1-st\")) {\n\n  data <- data.frame(data)\n\n  if (length(dim(data)) > 2)\n    stop(\"Error in data format: dataframe format required\")\n\n  if (attr(model$terms, \"dataClasses\")[[1]] == \"logical\")\n    stop(\"Error in model syntax: logical form for response not supported\")\n\n  if (tail(names(attr(model$terms,\"dataClasses\")),n=1)==\"(weights)\") {\n    n.terms <- length(attr(model$terms,\"dataClasses\"))\n    attr(model$terms,\"dataClasses\") <- attr(model$terms,\"dataClasses\")[1:n.terms - 1]\n  }\n\n  if (attr(model, \"class\")[1] == \"lm\"|\n      attr(model, \"class\")[1] == \"glm\") {\n    for(i in 1:length(names(attr(model$terms, \"dataClasses\")))) {\n      com1=numeric(length(names(data)))\n      for(j in 1:length(names(data))) {\n        if (names(attr(model$terms, \"dataClasses\"))[i]==names(data)[j]) com1[j]=1\n      }\n      if (sum(com1)==0)\n        stop(\"Error in model syntax: some of model's terms do not match to variables' name in dataset\")\n    }\n  }\n\n  if (attr(model, \"class\")[1] == \"coxph.null\") {\n    stop(\"Error in model syntax: the model is null\")\n  }\n\n  if (attr(model, \"class\")[1] == \"coxph\") {\n    n.strata <- length(attr(model$terms, \"specials\")$strata)\n    dim.terms <- length(names(attr(model$terms, \"dataClasses\")))\n\n    for (i in 2:dim.terms) {\n      if (substr(names(attr(model$terms, \"dataClasses\"))[i], 1, 6) == \"strata\") {\n        nch <- nchar(names(attr(model$terms, \"dataClasses\"))[i])\n        names(attr(model$terms, \"dataClasses\"))[i] <- substr(names(attr(model$terms,\n                                                                        \"dataClasses\"))[i], 8, (nch - 1))\n      }\n    }\n\n    if (!is.null(attr(model$terms, \"specials\")$tt)) {\n      stop(\"Error in model syntax: coxph models with a time dependent covariate is not supported\")\n    }\n\n    for(i in 2:length(names(attr(model$terms, \"dataClasses\")))) {\n      com1=numeric(length(names(data)))\n      for(j in 1:length(names(data))) {\n        if (names(attr(model$terms, \"dataClasses\"))[i]==names(data)[j]) com1[j]=1\n      }\n      if (sum(com1)==0)\n        stop(\"Error in model syntax: some of model's terms do not match to variables' name in dataset\")\n    }\n  }\n\n  if (attr(model, \"class\")[1] == \"lm\") {\n    DynNom.lm(model, data, clevel, covariate)\n  }\n  if (attr(model, \"class\")[1] == \"glm\") {\n    DynNom.glm(model, data, clevel, covariate)\n  }\n  if (attr(model, \"class\")[1] == \"coxph\") {\n    if (attr(model$terms, \"dataClasses\")[[1]] == \"nmatrix.3\")\n      stop(\"Error in model syntax: start/stop notation not supported\")\n\n    if (attr(model$terms, \"dataClasses\")[[1]] == \"nmatrix.2\") {\n      DynNom.coxph(model, data, clevel, covariate, ptype)\n    }\n  }\n}\n",
+    "created" : 1473851544466.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "735026019",
+    "id" : "99F2ABC",
+    "lastKnownWriteTime" : 1446031090,
+    "last_content_update" : 1446031090,
+    "path" : "C:/Users/Amir/Dropbox/Projects/DynNom project/DynNom V2.0/DynNom/R/DynNom.R",
+    "project_path" : "R/DynNom.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
